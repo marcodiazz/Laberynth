@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    
+    height: 100vh;
+    overflow-y: hidden;
+    background-image: url(Images/fondo1.jpg);
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+
+section
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    
+}
+
+
+
+header
+{
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -150px;
+    padding: 30px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
+    backdrop-filter: blur(10px);
+    border: 0px solid rgba(255, 255, 255, 0.25);
+    border-top:  1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+img#logoHeader
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    size: 20px;
+}
+header .logo
+{
+    color:whitesmoke;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    
+}
+header ul
+{
+    display: flex;
+    padding-left: 20px;
+}
+header ul li
+{
+    list-style: none;
+    margin: 0 10px;
+}
+
+header ul li a
+{
+    text-decoration: none;
+    font-weight: 500;
+    color: whitesmoke;
+    padding: 8px 15px;
+    border-radius: 40px;
+}
+
+header ul li a:hover,
+header ul li a.active
+{
+    background:#bf80ff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition-duration: 1s;
+}
+
+.container
+{
+    width: 40%;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
+    padding: 20px 50px;
+    margin-top: -50px;
+}
+
+.container .lab
+{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(10,1fr);
+    grid-template-areas: 
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."
+    ". . . . . . . . . ."; 
+    gap: 10px; 
+    width:50px;
+    height: 50px;
+}
+.container .lab div
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(0, 0, 0, 1) ;
+    
+}
+
+.container .lab div {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.mascot button
+{
+    background: none;
+    border: none;
+}
+
+.mascot
+{
+    position: absolute;
+    bottom: 90px;
+    right: 180px;
+
+}
+.mascot img
+{
+    width: 30vw;
+    animation: animate 2s linear infinite;
+}
+.active img
+{
+    animation: animateOnClick 2s linear ;
+    animation-iteration-count: 2;
+    
+}
+
+@keyframes animateOnClick
+{
+    0%,100%
+    {
+        transform: translateY(0px);
+    }
+    50%
+    {
+        transform: translateY(100px);
+    }
+}
+@keyframes animate
+{
+    0%,100%
+    {
+        transform: translateY(15px);
+    }
+    50%
+    {
+        transform: translateY(30px);
+    }
+}
