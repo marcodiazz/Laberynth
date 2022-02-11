@@ -12,7 +12,7 @@ body
     
     height: 100vh;
     overflow-y: hidden;
-    background-image: url(Images/fondo1.jpg);
+    background-image: url(Images/fondoClaro.jpg);
     background-size:cover;
     background-position: center;
     background-attachment: fixed;
@@ -30,17 +30,16 @@ section
     
 }
 
-
+/* ------------- HEADER ------------------ */
 
 header
 {
-    color: whitesmoke;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: -150px;
     padding: 30px 40px;
-    background: rgba(255, 255, 255, 0.1);
+    /* fondo1 background: rgba(158, 158, 158, 0.15); */
+    background: rgba(255, 255, 255, 0.6);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     border-radius: 40px;
     backdrop-filter: blur(10px);
@@ -51,14 +50,12 @@ header
 
 img#logoHeader
 {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    size: 20px;
+    margin-left: -30px;   
+    width: 120px;
 }
 header .logo
 {
-    color:whitesmoke;
+    color:rgba(66,54,101,1);
     font-weight: 700;
     text-decoration: none;
     font-size: 2em;
@@ -78,90 +75,138 @@ header ul li
 header ul li a
 {
     text-decoration: none;
-    font-weight: 500;
-    color: whitesmoke;
+    font-weight: 700;
+    color: rgba(66,54,101,1);
     padding: 8px 15px;
     border-radius: 40px;
 }
 
-header ul li a:hover,
-header ul li a.active
+header ul li a:hover
+/*header ul li a.active*/
 {
-    background:#bf80ff;
+    font-weight: 500;
+    color: whitesmoke;
+    background:rgba(254,33,125,1);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     transition-duration: 1s;
 }
 
+
+/* ---------------- CONTAINER ------------------ */
+
 .container
 {
-    width: 40%;
-    height: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    width: 40vw;
+    height: 80vh;
+    background: rgba(255, 255, 255, 0.5);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     border-radius: 40px;
     padding: 20px 50px;
     margin-top: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* -------- Estructura Laberinto ------------- */
 .container .lab
 {
     display: grid;
     grid-template-columns: repeat(10,1fr);
-    grid-template-rows: repeat(10,1fr);
-    grid-template-areas: 
-    ". . . . . . . . . ."
-    ". . . . . . . . . ."
-    ". . . . . . . . . ."
-    ". . . . . . . . . ."
-    ". . . . . . . . . ."
-    ". . . . . . . . . ."
-    ". . . . . . . . . ."
-    ". . . . . . . . . ."
-    ". . . . . . . . . ."; 
-    gap: 10px; 
-    width:50px;
-    height: 50px;
-}
-.container .lab div
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:rgba(0, 0, 0, 1) ;
-    
+    grid-template-rows: repeat(10,1fr); 
+    gap: 1px; 
+    height: 60vh;
+    width: 60vh;
+    margin-top: 40px
 }
 
-.container .lab div {
-    padding: 20px;
-    width: 100%;
-    height: 100%;
+
+/* ------------ Celdas ----------- */
+
+.container .lab .box {
+    /*background-color: rgba(0, 0, 0, 0.6);*/
+    box-shadow:0px 0px 2px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
 }
 
-.mascot button
-{
-    background: none;
-    border: none;
+.wall{
+   background-color : #483c6c;
+    box-shadow :inset 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
+
 }
 
-.mascot
+/* .mascot
 {
     position: absolute;
     bottom: 90px;
-    right: 180px;
+    right: 120px;
 
 }
 .mascot img
 {
     width: 30vw;
     animation: animate 2s linear infinite;
+    visibility: hidden;
 }
-.active img
+*/
+
+/* --------- DARK MODE ----------- */ 
+.dark-mode-body 
 {
-    animation: animateOnClick 2s linear ;
-    animation-iteration-count: 2;
+    background-image: url(Images/fondoOscuro.jpg);
+    color: whitesmoke;
+}
+.dark-mode-body header
+{
+    /*background: rgba(40, 40, 40, 0.75);*/
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px -10px 20px 5px rgba(189, 189, 189, 0.5);
+}
+.dark-mode-body header a.logo
+{
+    color: #22c8ce;
+    font-weight: 700;
+}
+.dark-mode-body header ul li a
+{
+    color: #323232;
+    font-weight: 500;
+}
+.dark-mode-body header ul li a:hover
+{
+    font-weight: 500;
+    color: #212121;
+    background:rgb(67, 209, 193);
+}
+.dark-mode-body #container1
+{
+    background: rgba(255, 255, 255, 0.75);
+    /*background: rgba(40, 40, 40, 0.75);*/
+    box-shadow: 0 20px 45px rgba(240, 240, 240, 0.623);
+}
+.dark-mode-body .lab .box {
+   
+    box-shadow:0px 0px 1px 2px rgba(0, 0, 0, 0.815);
+    border-radius: 10px;
     
 }
 
+.dark-mode-body .wall{
+    background-color : #14FFEC; 
+    box-shadow : 2px 2px 1px 1px rgba(255, 255, 255, 0.7);
+
+}
+
+.dark-mode-body .path
+{
+    background-color: #323232;   
+    box-shadow: 0 20px 45px rgba(240, 240, 240, 0.623);
+}
+/*
+.hide-mascot #mascot1
+{
+    visibility: hidden;
+}
 @keyframes animateOnClick
 {
     0%,100%
@@ -184,3 +229,4 @@ header ul li a.active
         transform: translateY(30px);
     }
 }
+*/

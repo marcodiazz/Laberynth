@@ -7,7 +7,7 @@
     <title>Scape</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/jpg" href="Images/favicon.ico"/>
-    <script src="Script.js"></script>
+
 </head>
 <body>
     <section>
@@ -15,32 +15,22 @@
             <img src="Images/caballo.png" alt="Logo" id="logoHeader">
             <a href="#" class="logo">ScapeLab</a>
             <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Play</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="#" class="active">Play</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#" onclick="darkMode()">Mode</a></li>
                 
             </ul>
         </header>
-        <div class="container">
-           <div class="lab">
+        <div class="container" id="container1">
+           <div class="lab" id="lab-div">
+               
             
            </div>
         </div>
         <div id="mascot1" class="mascot">
-               <button onclick="jump()"><img src="Images/caballo.png" alt="Logo"></button>
+               <img src="Images/caballo.png" onclick="hide()" alt="Logo">
         </div>
     </section>
-        
-    <script>
-        function jump(){
-            document.getElementById("mascot1").classList.add("active");
-            setTimeout(aux,4000)
-
-        }
-        function aux(){
-            document.getElementById("mascot1").classList.remove("active");
-        }
-
-    </script>
 </body>
+<script src="Script.js"></script>
 </html>
