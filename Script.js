@@ -15,7 +15,6 @@ function genGrid()
             box.className = "box";
             box.id = "box-" + i + j;
             lab.appendChild(box);
-            console.log("hola")
         }
     }
 }

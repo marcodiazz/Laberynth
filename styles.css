@@ -68,8 +68,10 @@ header ul
 }
 header ul li
 {
+    font-size: 20px;
     list-style: none;
     margin: 0 10px;
+    font-weight: 700;
 }
 
 header ul li a
@@ -131,24 +133,10 @@ header ul li a:hover
 
 .wall{
    background-color : #483c6c;
-    box-shadow :inset 2px 2px 1px 1px rgba(0, 0, 0, 0.4);
+    box-shadow :inset 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
 
 }
 
-/* .mascot
-{
-    position: absolute;
-    bottom: 90px;
-    right: 120px;
-
-}
-.mascot img
-{
-    width: 30vw;
-    animation: animate 2s linear infinite;
-    visibility: hidden;
-}
-*/
 
 /* --------- DARK MODE ----------- */ 
 .dark-mode-body 
@@ -164,17 +152,17 @@ header ul li a:hover
 }
 .dark-mode-body header a.logo
 {
-    color: #22c8ce;
+    color: #483c6c;
     font-weight: 700;
 }
 .dark-mode-body header ul li a
 {
-    color: #323232;
-    font-weight: 500;
+    color: #483c6c;
+    font-weight: 700;
 }
 .dark-mode-body header ul li a:hover
 {
-    font-weight: 500;
+    font-weight: 700;
     color: #212121;
     background:rgb(67, 209, 193);
 }
@@ -186,47 +174,19 @@ header ul li a:hover
 }
 .dark-mode-body .lab .box {
    
-    box-shadow:0px 0px 1px 2px rgba(0, 0, 0, 0.815);
+    box-shadow:0px 0px 2px 2px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
     
 }
 
 .dark-mode-body .wall{
-    background-color : #14FFEC; 
-    box-shadow : 2px 2px 1px 1px rgba(255, 255, 255, 0.7);
+    background-color : #483c6c; 
+    box-shadow :inset 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
 
 }
 
 .dark-mode-body .path
 {
-    background-color: #323232;   
+    background-color: whitesmoke;   
     box-shadow: 0 20px 45px rgba(240, 240, 240, 0.623);
 }
-/*
-.hide-mascot #mascot1
-{
-    visibility: hidden;
-}
-@keyframes animateOnClick
-{
-    0%,100%
-    {
-        transform: translateY(0px);
-    }
-    50%
-    {
-        transform: translateY(100px);
-    }
-}
-@keyframes animate
-{
-    0%,100%
-    {
-        transform: translateY(15px);
-    }
-    50%
-    {
-        transform: translateY(30px);
-    }
-}
-*/
