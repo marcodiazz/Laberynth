@@ -7,6 +7,7 @@
     <title>Scape</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/jpg" href="Images/favicon.ico"/>
+    <script src="maze_generator.js"></script>
 
 </head>
 <body>
@@ -23,11 +24,21 @@
         </header>
         <div class="container" id="container1">
            <div class="lab" id="lab-div">
-               
             
            </div>
         </div>
     </section>
+
 </body>
 <script src="Script.js"></script>
+<script>
+  let Maze = new MazeBuilder(5, 5);
+  Maze.placeKey();
+  console.log(Maze.maze)
+
+  let maze = Maze.maze;
+
+  render(maze);
+
+</script>
 </html>
