@@ -1,4 +1,4 @@
-
+let player = 5;
 
 genGrid()
 /*genEmptyMaze();
@@ -9,11 +9,11 @@ function genGrid()
 {
     var lab = document.getElementById("lab-div");
     
-    for (var i=0; i < 11; i++) { // rows
-        for (var j=0; j < 11; j++) { // columns
+    for (var i=0; i < 21; i++) { // rows
+        for (var j=0; j < 21; j++) { // columns
             var box = document.createElement("div");
             box.className = "box";
-            box.id = "box-" + i + j;
+            box.id = "box-" + i + "-" + j;
             lab.appendChild(box);
         }
     }
@@ -39,18 +39,22 @@ function genWalls(){
 }*/
 
 function render(maze){
-    for(var i=0; i < 11; i++){
-        for(var j=0; j<11; j++){
+    for(var i=0; i < 21; i++){
+        for(var j=0; j<21; j++){
+
             if (maze[i][j].length > 0 && maze[i][j][0] == "wall"){
-                console.log(`[${i}-${j}] Wall`)
+                console.log(i + " " + j)
                 getBox(i,j).classList.add("wall");
             }
             else if(maze[i][j].length == 0 || maze[i][j][0] == 'key'){
-                console.log(`[${i}-${j}]`)
+                console.log(i + " " + j)
                 getBox(i,j).classList.add("path");
             }
             else if(maze[i][j][0] == "door"){
                     getBox(i,j).classList.add("door");
+            }
+            else {
+                getBox(i,j).classList.add("wall");
             }
            
         }
@@ -58,12 +62,29 @@ function render(maze){
 }
 
 
-function move(){
-    
+function move(maze){
+    let playerP = locatePlayer(maze);
+    document.addEventListener('keypress', (event) => {
+        var name = event.key;
+        var code = event.code;
+        if (name === 'a') {
+          
+          return;
+        }
+   
+
+}
+
+function locatePlayer(maze){
+    var j = 0;
+    while((maze[0][j][0] =! "door")){
+        j++;
+    }
+    return j;
 }
 
 function getBox(i, j){
-    return document.getElementById("box-" + i + j);
+    return document.getElementById("box-" + i + "-" + j);
 }
 
 function darkMode(){  

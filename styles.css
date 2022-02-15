@@ -88,7 +88,8 @@ header ul li a:hover
 {
     font-weight: 500;
     color: whitesmoke;
-    background:rgba(254,33,125,1);
+    /* background:rgba(254,33,125,1);*/
+    background-color: #483c6c ;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     transition-duration: 1s;
 }
@@ -114,8 +115,8 @@ header ul li a:hover
 .container .lab
 {
     display: grid;
-    grid-template-columns: repeat(11,1fr);
-    grid-template-rows: repeat(11,1fr); 
+    grid-template-columns: repeat(21,1fr);
+    grid-template-rows: repeat(21,1fr); 
     gap: 1px; 
     height: 60vh;
     width: 60vh;
@@ -127,8 +128,8 @@ header ul li a:hover
 
 .container .lab .box {
     /*background-color: rgba(0, 0, 0, 0.6);*/
-    box-shadow:0px 0px 2px 2px rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
+    box-shadow:0px 0px 2px 1px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
 }
 
 .wall{
@@ -151,17 +152,17 @@ header ul li a:hover
 .dark-mode-body header
 {
     /*background: rgba(40, 40, 40, 0.75);*/
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(51, 51, 51, 0.4);
     box-shadow: 0px -10px 20px 5px rgba(189, 189, 189, 0.5);
 }
 .dark-mode-body header a.logo
 {
-    color: #483c6c;
+    color: whitesmoke;
     font-weight: 700;
 }
 .dark-mode-body header ul li a
 {
-    color: #483c6c;
+    color: whitesmoke;
     font-weight: 700;
 }
 .dark-mode-body header ul li a:hover
@@ -172,19 +173,19 @@ header ul li a:hover
 }
 .dark-mode-body #container1
 {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(51, 51, 51, 0.4);
     /*background: rgba(40, 40, 40, 0.75);*/
     box-shadow: 0 10px 20px rgba(240, 240, 240, 0.623);
 }
 .dark-mode-body .lab .box {
    
-    box-shadow:0px 0px 2px 2px rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
+    box-shadow:0px 0px 2px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
     
 }
 
 .dark-mode-body .wall{
-    background-color : #483c6c; 
+    background-color : #FF4C29; 
     box-shadow :inset 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
 
 }
