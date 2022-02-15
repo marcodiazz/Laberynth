@@ -46,7 +46,7 @@ function render(maze){
                 console.log(i + " " + j)
                 getBox(i,j).classList.add("wall");
             }
-            else if(maze[i][j].length == 0 || maze[i][j][0] == 'key'){
+            else if(maze[i][j].length == 0 || maze[i][j][0] == 'key'){
                 console.log(i + " " + j)
                 getBox(i,j).classList.add("path");
             }
@@ -61,20 +61,20 @@ function render(maze){
     } 
 }
 
-
+/*
 function move(maze){
     let playerP = locatePlayer(maze);
     document.addEventListener('keypress', (event) => {
         var name = event.key;
         var code = event.code;
-        if (name === 'a') {
-          
+        if (name == 'a') {
+          maze
           return;
         }
    
 
 }
-
+*/
 function locatePlayer(maze){
     var j = 0;
     while((maze[0][j][0] =! "door")){

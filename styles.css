@@ -37,7 +37,8 @@ header
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 40px;
+    max-width: 70%;
+    padding: 2rem 3rem;
     /* fondo1 background: rgba(158, 158, 158, 0.15); */
     background: rgba(255, 255, 255, 0.6);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
@@ -50,7 +51,7 @@ header
 
 img#logoHeader
 {
-    margin-left: -30px;   
+    margin-left: -2rem;   
     width: 120px;
 }
 header .logo
@@ -62,15 +63,16 @@ header .logo
     
 }
 header ul
-{
+{   
+   
     display: flex;
     padding-left: 20px;
 }
 header ul li
 {
-    font-size: 20px;
+    font-size: 1.25rem;
     list-style: none;
-    margin: 0 10px;
+    margin: 0 1rem;
     font-weight: 700;
 }
 
@@ -79,7 +81,7 @@ header ul li a
     text-decoration: none;
     font-weight: 700;
     color: rgba(66,54,101,1);
-    padding: 8px 15px;
+    padding: 0.5rem 1rem;
     border-radius: 40px;
 }
 
@@ -88,7 +90,6 @@ header ul li a:hover
 {
     font-weight: 500;
     color: whitesmoke;
-    /* background:rgba(254,33,125,1);*/
     background-color: #483c6c ;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     transition-duration: 1s;
@@ -99,13 +100,14 @@ header ul li a:hover
 
 .container
 {
-    width: 40vw;
-    height: 80vh;
+    max-width: 40rem;
+    max-width: 90%;
     background: rgba(255, 255, 255, 0.5);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     border-radius: 40px;
-    padding: 20px 50px;
-    margin-top: -50px;
+    padding: 3rem;
+    padding-bottom: 4em;
+    margin-top: -3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,13 +116,15 @@ header ul li a:hover
 /* -------- Estructura Laberinto ------------- */
 .container .lab
 {
+    padding: 1rem;
     display: grid;
     grid-template-columns: repeat(21,1fr);
     grid-template-rows: repeat(21,1fr); 
     gap: 1px; 
-    height: 60vh;
-    width: 60vh;
-    margin-top: 40px
+    height: 40rem;
+    width: 40rem;
+    max-width: 95%;
+    margin-top: 3rem
 }
 
 
@@ -128,6 +132,7 @@ header ul li a:hover
 
 .container .lab .box {
     /*background-color: rgba(0, 0, 0, 0.6);*/
+    
     box-shadow:0px 0px 2px 1px rgba(0, 0, 0, 0.6);
     border-radius: 5px;
 }
@@ -142,7 +147,10 @@ header ul li a:hover
     box-shadow :inset 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
+.player{
+    background-color: rgb(255, 230, 0);
 
+}
 /* --------- DARK MODE ----------- */ 
 .dark-mode-body 
 {
@@ -158,12 +166,12 @@ header ul li a:hover
 .dark-mode-body header a.logo
 {
     color: whitesmoke;
-    font-weight: 700;
+    font-weight: 500;
 }
 .dark-mode-body header ul li a
 {
     color: whitesmoke;
-    font-weight: 700;
+    font-weight: 500;
 }
 .dark-mode-body header ul li a:hover
 {
@@ -178,13 +186,16 @@ header ul li a:hover
     box-shadow: 0 10px 20px rgba(240, 240, 240, 0.623);
 }
 .dark-mode-body .lab .box {
-   
+    border-width: 2px;
+    border-color: whitesmoke;
     box-shadow:0px 0px 2px 1px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
     
 }
 
 .dark-mode-body .wall{
+    border-width: 10px;
+    border-color: whitesmoke;
     background-color : #FF4C29; 
     box-shadow :inset 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
 
@@ -192,6 +203,8 @@ header ul li a:hover
 
 .dark-mode-body .path
 {
+     border-width: 10px;
+    border-color: whitesmoke;
     background-color: whitesmoke;   
     box-shadow: 0 20px 45px rgba(240, 240, 240, 0.623);
 }
