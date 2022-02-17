@@ -1,3 +1,10 @@
+let Maze = new MazeBuilder(10, 10);
+Maze.placeKey();
+console.log(Maze.maze)
+
+
+  
+
 let player = 5;
 
 genGrid()
@@ -43,15 +50,21 @@ function render(maze){
         for(var j=0; j<21; j++){
 
             if (maze[i][j].length > 0 && maze[i][j][0] == "wall"){
-                console.log(i + " " + j)
                 getBox(i,j).classList.add("wall");
             }
             else if(maze[i][j].length == 0 || maze[i][j][0] == 'key'){
-                console.log(i + " " + j)
                 getBox(i,j).classList.add("path");
             }
             else if(maze[i][j][0] == "door"){
                     getBox(i,j).classList.add("door");
+            }
+            else if(maze[i][j] == 5){
+                getBox(i,j).classList.add("player")
+                getBox(i,j).classList.remove("travalled")
+            }
+            else if(maze[i][j] == 4){
+                getBox(i,j).classList.add("travelled")
+                getBox(i,j).classList.remove("player")
             }
             else {
                 getBox(i,j).classList.add("wall");
@@ -60,27 +73,101 @@ function render(maze){
         }
     } 
 }
+/*  PATH = 0
+    WALL = 1
+    DOOR = 3
+    TRAVELLED PATH = 4
+    PLAYER = 5
+*/
 
-/*
 function move(maze){
-    let playerP = locatePlayer(maze);
-    document.addEventListener('keypress', (event) => {
-        var name = event.key;
-        var code = event.code;
-        if (name == 'a') {
-          maze
-          return;
-        }
    
 
 }
-*/
-function locatePlayer(maze){
+
+let i = 0
+let maze = Maze.maze;
+let j = locateEntrance(maze);
+let e = locateExit(maze);
+render(maze);
+document.addEventListener('keypress', (event) => {
+    
+    var name = event.key;
+    if(name == 'w'){
+        if(maze[i-1][j][0] != "wall"){
+            maze[i-1][j] = 5
+            maze[i][j] = 4
+            i = i - 1
+        }
+    } 
+    else if(name == 'a'){
+        if(maze[i][j-1][0] != "wall"){
+            maze[i][j-1] = 5 
+            maze[i][j] = 4
+            j = j - 1
+        }
+    } 
+    else if(name == 's'){
+        if(maze[i+1][j][0] != "wall"){
+            maze[i+1][j] = 5
+            maze[i][j] = 4
+            i = i + 1
+        }
+    } 
+    else if(name == 'd'){
+        if(maze[i][j+1][0] != "wall"){
+           maze[i][j+1] = 5
+           maze[i][j] = 4
+           j = j + 1
+        }
+    }    
+    fogMode(i,j)
+    if(checkExit(maze,i,j)){
+        document.getElementById("lab-div").style.cssText = "transition: 0.5s; background: black"
+    }
+  
+    render(maze)
+})
+
+function locateEntrance(maze){
     var j = 0;
-    while((maze[0][j][0] =! "door")){
+    while((maze[0][j][0] != "door")){
         j++;
     }
     return j;
+}
+
+function locateExit(maze){
+    var e = 0;
+    while((maze[20][e][0] != "door")){
+        e++;
+    }
+    return e;
+}
+
+function fogMode(filas, columnas){
+    var i
+    var j
+
+    for(i = 1; i < 4; i++){
+        for(j = 1; j < 4; j++){
+            getBox(filas,columnas + j).style.cssText = "filter: none"
+            getBox(filas,columnas - j).style.cssText = "filter: none"
+            getBox(filas + i,columnas).style.cssText = "filter: none"
+            getBox(filas - i,columnas).style.cssText = "filter: none"
+            getBox(filas + i,columnas + j).style.cssText = "filter: none"
+            getBox(filas + i,columnas - j).style.cssText = "filter: none"
+            getBox(filas - i,columnas + j).style.cssText = "filter: none"
+            getBox(filas - i,columnas - j).style.cssText = "filter: none"
+        }
+    }
+
+}
+function checkExit(maze, i, j){
+    if(maze[i][j] == maze[20][e]){
+        return 1;
+    }
+    return 0;
 }
 
 function getBox(i, j){
@@ -88,8 +175,7 @@ function getBox(i, j){
 }
 
 function darkMode(){  
+    document.getElementById("mode").classList.toggle("fa-sun")
     document.body.classList.toggle("dark-mode-body");
 }
-function hide(){
-    document.getElementById("mascot1").classList.toggle("hide-mascot");
-}
+

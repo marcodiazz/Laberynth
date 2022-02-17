@@ -7,18 +7,20 @@
     <title>Scape</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/jpg" href="Images/favicon.ico"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="maze_generator.js"></script>
 
 </head>
 <body>
     <section>
         <header>
-            <img src="Images/caballo.png" alt="Logo" id="logoHeader">
-            <a href="#" class="logo">ScapeLab</a>
+            <!--<img src="Images/caballo.png" alt="Logo" id="logoHeader">-->
+            <i class="fa-solid fa-code fa-4x" id="logoHeader"></i> 
+            <a href="#" class="logo">ScapeLab</a> 
             <ul>
                 <li><a href="#" class="active">Play</a></li>
                 <li><a href="#">Settings</a></li>
-                <li><a href="#" onclick="darkMode()">Mode</a></li>
+                <li><a href="#" onclick="darkMode()"><i class="fa-solid fa-moon" id="mode"></i></a></li>
                 
             </ul>
         </header>
@@ -30,15 +32,9 @@
     </section>
 
 </body>
-<script src="Script.js"></script>
+
 <script>
-  let Maze = new MazeBuilder(10, 10);
-  Maze.placeKey();
-  console.log(Maze.maze)
-
-  let maze = Maze.maze;
-
-  render(maze);
-
+ 
 </script>
+<script src="Script.js"></script>
 </html>
