@@ -80,16 +80,14 @@ function render(maze){
     PLAYER = 5
 */
 
-function move(maze){
-   
-
-}
 
 let i = 0
 let maze = Maze.maze;
 let j = locateEntrance(maze);
 let e = locateExit(maze);
 render(maze);
+
+maze[e][j] = 5;
 document.addEventListener('keypress', (event) => {
     
     var name = event.key;
@@ -148,20 +146,57 @@ function locateExit(maze){
 function fogMode(filas, columnas){
     var i
     var j
-
-    for(i = 1; i < 4; i++){
-        for(j = 1; j < 4; j++){
-            getBox(filas,columnas + j).style.cssText = "filter: none"
-            getBox(filas,columnas - j).style.cssText = "filter: none"
-            getBox(filas + i,columnas).style.cssText = "filter: none"
-            getBox(filas - i,columnas).style.cssText = "filter: none"
-            getBox(filas + i,columnas + j).style.cssText = "filter: none"
-            getBox(filas + i,columnas - j).style.cssText = "filter: none"
-            getBox(filas - i,columnas + j).style.cssText = "filter: none"
-            getBox(filas - i,columnas - j).style.cssText = "filter: none"
+    for(var m = 0; m <= 20; m++){
+        getBox(m,0).style.cssText = "filter: none"
+        getBox(m,20).style.cssText = "filter: none"
+        getBox(0,m).style.cssText = "filter: none"
+        getBox(20,m).style.cssText = "filter: none"
+    }  
+    if((filas > 3 && filas < 17) || (columnas > 3 && columnas < 17)){
+        for(i = 1; i <= 3; i++){
+            for(j = 1; j <= 3; j++){
+                getBox(filas,columnas).style.cssText = "filter: none"
+                getBox(filas,columnas + j).style.cssText = "filter: none"
+                getBox(filas,columnas - j).style.cssText = "filter: none"
+                getBox(filas + i,columnas).style.cssText = "filter: none"
+                getBox(filas - i,columnas).style.cssText = "filter: none"
+                getBox(filas + i,columnas + j).style.cssText = "filter: none"
+                getBox(filas + i,columnas - j).style.cssText = "filter: none"
+                getBox(filas - i,columnas + j).style.cssText = "filter: none"
+                getBox(filas - i,columnas - j).style.cssText = "filter: none"
+            }
+        }
+    
+    }
+    else if((filas == 2 || filas == 18) || (columnas == 2 || columnas == 18)){
+        for(i = 1; i <= 2; i++){
+            for(j = 1; j <= 2; j++){
+                getBox(filas,columnas).style.cssText = "filter: none"
+                getBox(filas,columnas + j).style.cssText = "filter: none"
+                getBox(filas,columnas - j).style.cssText = "filter: none"
+                getBox(filas + i,columnas).style.cssText = "filter: none"
+                getBox(filas - i,columnas).style.cssText = "filter: none"
+                getBox(filas + i,columnas + j).style.cssText = "filter: none"
+                getBox(filas + i,columnas - j).style.cssText = "filter: none"
+                getBox(filas - i,columnas + j).style.cssText = "filter: none"
+                getBox(filas - i,columnas - j).style.cssText = "filter: none"
+            }
         }
     }
+    else if((filas == 1 || filas == 19) || (columnas == 1 || columnas == 19)) {
+        getBox(filas,columnas).style.cssText = "filter: none"
+        getBox(filas,columnas + 1).style.cssText = "filter: none"
+        getBox(filas,columnas - 1).style.cssText = "filter: none"
+        getBox(filas + 1,columnas).style.cssText = "filter: none"
+        getBox(filas - 1,columnas).style.cssText = "filter: none"
+        getBox(filas + 1,columnas + 1).style.cssText = "filter: none"
+        getBox(filas + 1,columnas - 1).style.cssText = "filter: none"
+        getBox(filas - 1,columnas + 1).style.cssText = "filter: none"
+        getBox(filas - 1,columnas - 1).style.cssText = "filter: none"
 
+    }
+
+    
 }
 function checkExit(maze, i, j){
     if(maze[i][j] == maze[20][e]){
