@@ -1,16 +1,10 @@
 let Maze = new MazeBuilder(10, 10);
 Maze.placeKey();
-console.log(Maze.maze)
-
-
-  
+console.log(Maze.maze) 
 
 let player = 5;
 
 genGrid()
-/*genEmptyMaze();
-genWalls();*/
-
 
 function genGrid()
 {
@@ -25,25 +19,6 @@ function genGrid()
         }
     }
 }
-
-/*
-function genEmptyMaze(){
-    maze = [];
-    for(var i=0; i < 10; i++){
-        maze.push([]);
-        for(var j=0; j<10; j++){
-            maze[i][j] = 1;
-        }
-    }
-}
-function genWalls(){
-    for(var i=0; i < 10; i++){
-        for(var j=0; j<10; j++){
-            if (Math.random() > 0.6) maze[i][j] = 1;
-            else maze[i][j] = 0;
-        }
-    }
-}*/
 
 function render(maze){
     for(var i=0; i < 21; i++){
@@ -73,6 +48,7 @@ function render(maze){
         }
     } 
 }
+
 /*  PATH = 0
     WALL = 1
     DOOR = 3
@@ -80,14 +56,14 @@ function render(maze){
     PLAYER = 5
 */
 
-
+let counter = 1
 let i = 0
 let maze = Maze.maze;
+startMaze();
 let j = locateEntrance(maze);
 let e = locateExit(maze);
 render(maze);
 
-maze[e][j] = 5;
 document.addEventListener('keypress', (event) => {
     
     var name = event.key;
@@ -96,6 +72,7 @@ document.addEventListener('keypress', (event) => {
             maze[i-1][j] = 5
             maze[i][j] = 4
             i = i - 1
+            counterUp();
         }
     } 
     else if(name == 'a'){
@@ -103,6 +80,7 @@ document.addEventListener('keypress', (event) => {
             maze[i][j-1] = 5 
             maze[i][j] = 4
             j = j - 1
+            counterUp();
         }
     } 
     else if(name == 's'){
@@ -110,6 +88,7 @@ document.addEventListener('keypress', (event) => {
             maze[i+1][j] = 5
             maze[i][j] = 4
             i = i + 1
+            counterUp();
         }
     } 
     else if(name == 'd'){
@@ -117,9 +96,10 @@ document.addEventListener('keypress', (event) => {
            maze[i][j+1] = 5
            maze[i][j] = 4
            j = j + 1
+           counterUp();
         }
     }    
-    fogMode(i,j)
+    applyFogSquare(i, j , 3)
     if(checkExit(maze,i,j)){
         document.getElementById("lab-div").style.cssText = "transition: 0.5s; background: black"
     }
@@ -143,61 +123,38 @@ function locateExit(maze){
     return e;
 }
 
-function fogMode(filas, columnas){
-    var i
-    var j
+function startMaze(){
     for(var m = 0; m <= 20; m++){
         getBox(m,0).style.cssText = "filter: none"
         getBox(m,20).style.cssText = "filter: none"
         getBox(0,m).style.cssText = "filter: none"
         getBox(20,m).style.cssText = "filter: none"
     }  
-    if((filas > 3 && filas < 17) || (columnas > 3 && columnas < 17)){
-        for(i = 1; i <= 3; i++){
-            for(j = 1; j <= 3; j++){
-                getBox(filas,columnas).style.cssText = "filter: none"
-                getBox(filas,columnas + j).style.cssText = "filter: none"
-                getBox(filas,columnas - j).style.cssText = "filter: none"
-                getBox(filas + i,columnas).style.cssText = "filter: none"
-                getBox(filas - i,columnas).style.cssText = "filter: none"
-                getBox(filas + i,columnas + j).style.cssText = "filter: none"
-                getBox(filas + i,columnas - j).style.cssText = "filter: none"
-                getBox(filas - i,columnas + j).style.cssText = "filter: none"
-                getBox(filas - i,columnas - j).style.cssText = "filter: none"
-            }
-        }
-    
-    }
-    else if((filas == 2 || filas == 18) || (columnas == 2 || columnas == 18)){
-        for(i = 1; i <= 2; i++){
-            for(j = 1; j <= 2; j++){
-                getBox(filas,columnas).style.cssText = "filter: none"
-                getBox(filas,columnas + j).style.cssText = "filter: none"
-                getBox(filas,columnas - j).style.cssText = "filter: none"
-                getBox(filas + i,columnas).style.cssText = "filter: none"
-                getBox(filas - i,columnas).style.cssText = "filter: none"
-                getBox(filas + i,columnas + j).style.cssText = "filter: none"
-                getBox(filas + i,columnas - j).style.cssText = "filter: none"
-                getBox(filas - i,columnas + j).style.cssText = "filter: none"
-                getBox(filas - i,columnas - j).style.cssText = "filter: none"
-            }
-        }
-    }
-    else if((filas == 1 || filas == 19) || (columnas == 1 || columnas == 19)) {
-        getBox(filas,columnas).style.cssText = "filter: none"
-        getBox(filas,columnas + 1).style.cssText = "filter: none"
-        getBox(filas,columnas - 1).style.cssText = "filter: none"
-        getBox(filas + 1,columnas).style.cssText = "filter: none"
-        getBox(filas - 1,columnas).style.cssText = "filter: none"
-        getBox(filas + 1,columnas + 1).style.cssText = "filter: none"
-        getBox(filas + 1,columnas - 1).style.cssText = "filter: none"
-        getBox(filas - 1,columnas + 1).style.cssText = "filter: none"
-        getBox(filas - 1,columnas - 1).style.cssText = "filter: none"
-
-    }
-
-    
 }
+
+function applyFog(i,j){
+    
+    if(!getBox(i,j)) return
+    getBox(i,j).style.cssText = "filter: none"   
+}
+
+function applyFogSquare(filas, columnas, radio){
+    
+    applyFog(filas,columnas);
+    for (var i = 1; i <= radio; i++){
+        for(var j = 1; j <= radio; j++){
+            applyFog(filas,columnas + j)
+            applyFog(filas,columnas - j)
+            applyFog(filas + i, columnas)
+            applyFog(filas - i, columnas)
+            applyFog(filas + i, columnas + j)
+            applyFog(filas  + i, columnas - j)
+            applyFog(filas - i, columnas + j)
+            applyFog(filas - i, columnas - j)
+        }
+    }
+}
+    
 function checkExit(maze, i, j){
     if(maze[i][j] == maze[20][e]){
         return 1;
@@ -209,6 +166,14 @@ function getBox(i, j){
     return document.getElementById("box-" + i + "-" + j);
 }
 
+
+// COUNTER FUNCTIONS
+
+function counterUp(){
+    counter = document.getElementById("counter").textContent = counter 
+    counter = counter + 1
+    return counter
+}
 function darkMode(){  
     document.getElementById("mode").classList.toggle("fa-sun")
     document.body.classList.toggle("dark-mode-body");
