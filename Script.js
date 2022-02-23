@@ -67,7 +67,8 @@ render(maze);
 document.addEventListener('keypress', (event) => {
     
     var name = event.key;
-    if(name == 'w'){
+
+    if(name == 'w' || event.code == 38){
         if(maze[i-1][j][0] != "wall"){
             maze[i-1][j] = 5
             maze[i][j] = 4
@@ -75,7 +76,7 @@ document.addEventListener('keypress', (event) => {
             counterUp();
         }
     } 
-    else if(name == 'a'){
+    else if(name == 'a' || event.code == 37){
         if(maze[i][j-1][0] != "wall"){
             maze[i][j-1] = 5 
             maze[i][j] = 4
@@ -83,7 +84,7 @@ document.addEventListener('keypress', (event) => {
             counterUp();
         }
     } 
-    else if(name == 's'){
+    else if(name == 's' || event.code == 40){
         if(maze[i+1][j][0] != "wall"){
             maze[i+1][j] = 5
             maze[i][j] = 4
@@ -91,7 +92,7 @@ document.addEventListener('keypress', (event) => {
             counterUp();
         }
     } 
-    else if(name == 'd'){
+    else if(name == 'd' || event.code == 39){
         if(maze[i][j+1][0] != "wall"){
            maze[i][j+1] = 5
            maze[i][j] = 4
