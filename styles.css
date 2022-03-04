@@ -207,9 +207,9 @@ header ul li a:hover
     color: #212121;
     background:rgb(67, 209, 193);
 }
-.dark-mode-body #container1
+.dark-mode-body .container
 {
-    background: #171717;
+    background: #0f0f0f;
     /*background: rgba(40, 40, 40, 0.75);*/
     box-shadow: 0 10px 20px rgba(240, 240, 240, 0.623);
 }
