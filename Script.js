@@ -69,36 +69,21 @@ document.addEventListener('keypress', (event) => {
     var name = event.key;
 
     if(name == 'w' || event.code == 38){
-        if(maze[i-1][j][0] != "wall"){
-            maze[i-1][j] = 5
-            maze[i][j] = 4
-            i = i - 1
-            counterUp();
-        }
+        moveUp();
+        
     } 
     else if(name == 'a' || event.code == 37){
-        if(maze[i][j-1][0] != "wall"){
-            maze[i][j-1] = 5 
-            maze[i][j] = 4
-            j = j - 1
-            counterUp();
-        }
+        moveLeft();
+        
+
     } 
     else if(name == 's' || event.code == 40){
-        if(maze[i+1][j][0] != "wall"){
-            maze[i+1][j] = 5
-            maze[i][j] = 4
-            i = i + 1
-            counterUp();
-        }
+        moveDown();
+        
     } 
     else if(name == 'd' || event.code == 39){
-        if(maze[i][j+1][0] != "wall"){
-           maze[i][j+1] = 5
-           maze[i][j] = 4
-           j = j + 1
-           counterUp();
-        }
+        moveRight();
+        
     }    
     applyFogSquare(i, j , 3)
     if(checkExit(maze,i,j)){
@@ -107,6 +92,39 @@ document.addEventListener('keypress', (event) => {
   
     render(maze)
 })
+
+function moveUp(){
+    if((i != 0) && maze[i-1][j][0] != "wall" ){
+        maze[i-1][j] = 5
+        maze[i][j] = 4
+        i = i - 1
+        counterUp();
+    }
+}
+function moveDown(){
+    if(maze[i+1][j][0] != "wall"){
+        maze[i+1][j] = 5
+        maze[i][j] = 4
+        i = i + 1
+        counterUp();
+    }
+}
+function moveLeft(){
+    if(maze[i][j-1][0] != "wall"){
+        maze[i][j-1] = 5
+        maze[i][j] = 4
+        j = j - 1
+        counterUp();
+    }
+}
+function moveRight(){
+    if(maze[i][j+1][0] != "wall"){
+        maze[i][j+1] = 5
+        maze[i][j] = 4
+        j = j + 1
+        counterUp();
+    }
+}
 
 function locateEntrance(maze){
     var j = 0;
@@ -211,23 +229,34 @@ function handleTouchMove(evt) {
                                                                          
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
-            console.log("right");
+            console.log("left");
+            moveLeft();
             /* right swipe */ 
         } else {
-            console.log("left");
+            console.log("right");
+            moveRight();
 
             /* left swipe */
         }                       
     } else {
         if ( yDiff > 0 ) {
-            console.log("down");
+            console.log("up");
+            moveUp();
+            
             /* down swipe */ 
         } else { 
-            console.log("up");
+            console.log("down");
+            moveDown();
             /* up swipe */
         }                                                                 
     }
     /* reset values */
     xDown = null;
-    yDown = null;                                             
-};
+    yDown = null; 
+    applyFogSquare(i, j , 3)
+    if(checkExit(maze,i,j)){
+        document.getElementById("lab-div").style.cssText = "transition: 0.5s; background: black"
+    }
+  
+    render(maze)                                            
+}
