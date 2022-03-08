@@ -252,11 +252,12 @@ header ul li a:hover
 }
 @media only screen and (max-width: 600px) {
     body{
-        
+        overflow-y: hidden;
         justify-content: flex-start;
         margin-top: 2rem;
     }
     header {
+        z-index: 1000;
         flex-direction: column;
         padding: 10px;
         padding-bottom: 10px;
