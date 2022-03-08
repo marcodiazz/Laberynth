@@ -6,7 +6,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    
 }
+
 body
 {
     display: flex;
@@ -31,13 +33,14 @@ header
     align-items: center;
     max-width: 70%;
     padding: 2rem 4rem;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 1);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     border: 0px solid rgba(255, 255, 255, 0.25);
     border-top:  1px solid rgba(255, 255, 255, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 10000;
 }
 
 
@@ -251,13 +254,17 @@ header ul li a:hover
     box-shadow: 0 20px 45px rgba(240, 240, 240, 0.623);
 }
 @media only screen and (max-width: 600px) {
+    body,
+    html {
+        position: fixed;
+    }
     body{
         overflow-y: hidden;
         justify-content: flex-start;
         margin-top: 2rem;
     }
     header {
-        z-index: 1000;
+        
         flex-direction: column;
         padding: 10px;
         padding-bottom: 10px;
