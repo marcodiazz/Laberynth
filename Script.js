@@ -64,24 +64,24 @@ let j = locateEntrance(maze);
 let e = locateExit(maze);
 render(maze);
 
-document.addEventListener('keypress', (event) => {
+document.addEventListener('keydown', (event) => {
     
     var name = event.key;
 
-    if(name == 'w' || event.code == 38){
+    if(name == 'w' || event.keyCode == '38'){
         moveUp();
         
     } 
-    else if(name == 'a' || event.code == 37){
+    else if(name == 'a' || event.keyCode == 37){
         moveLeft();
         
 
     } 
-    else if(name == 's' || event.code == 40){
+    else if(name == 's' || event.keyCode == 40){
         moveDown();
         
     } 
-    else if(name == 'd' || event.code == 39){
+    else if(name == 'd' || event.keyCode == 39){
         moveRight();
         
     }    
