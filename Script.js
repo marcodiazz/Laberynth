@@ -57,24 +57,11 @@ function render(maze){
 
 let counter = 1
 let i = 0
-let maze1= Maze.maze;
-//let mazeCopy = maze1.slice();
-//printMaze();
-//let mazeTextJSON = JSON.stringify(mazeCopy);
-//localStorage.setItem("mazeTextJSON", mazeTextJSON);
-let mazeGuardado = localStorage.getItem("mazeTextJSON");
-let maze = JSON.parse(mazeGuardado);
+//let maze= Maze.maze;
+let mazes = JSON.parse(semanalMaze);
+let maze = mazes[0];
 
-function printMaze(){
-    
-    for(let n = 0; n < 21; n++){
-        for(let m = 0; m < 21; m++){
-            if(maze[n][m][0]=="wall") console.log("1 ");
-            else if (!maze[n][m]==[]) console.log("0 ");
-            else console.log("x");
-        }
-    }
-}
+
 
 startMaze();
 let j = locateEntrance(maze);
@@ -278,3 +265,13 @@ function handleTouchMove(evt) {
     render(maze)                                            
 }
 
+function printMaze(){
+    
+    for(let n = 0; n < 21; n++){
+        for(let m = 0; m < 21; m++){
+            if(maze[n][m][0]=="wall") console.log("1 ");
+            else if (!maze[n][m]==[]) console.log("0 ");
+            else console.log("x");
+        }
+    }
+}
