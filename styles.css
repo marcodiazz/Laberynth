@@ -277,10 +277,10 @@ header ul li a:hover
        /* overflow-y: hidden;*/
         justify-content: flex-start;
         margin-top: 2rem;
-        position: fixed;
         margin-left: 0.6rem;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
+        
     }
     header {
         

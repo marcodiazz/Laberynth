@@ -1,10 +1,9 @@
 let Maze = new MazeBuilder(10, 10);
-Maze.placeKey();
-console.log(Maze.maze) 
+//console.log(Maze.maze);
 
 let player = 5;
 
-genGrid()
+genGrid();
 
 function genGrid()
 {
@@ -58,7 +57,25 @@ function render(maze){
 
 let counter = 1
 let i = 0
-let maze = Maze.maze;
+let maze1= Maze.maze;
+//let mazeCopy = maze1.slice();
+//printMaze();
+//let mazeTextJSON = JSON.stringify(mazeCopy);
+//localStorage.setItem("mazeTextJSON", mazeTextJSON);
+let mazeGuardado = localStorage.getItem("mazeTextJSON");
+let maze = JSON.parse(mazeGuardado);
+
+function printMaze(){
+    
+    for(let n = 0; n < 21; n++){
+        for(let m = 0; m < 21; m++){
+            if(maze[n][m][0]=="wall") console.log("1 ");
+            else if (!maze[n][m]==[]) console.log("0 ");
+            else console.log("x");
+        }
+    }
+}
+
 startMaze();
 let j = locateEntrance(maze);
 let e = locateExit(maze);
@@ -167,7 +184,7 @@ function applyFogSquare(filas, columnas, radio){
             applyFog(filas + i, columnas)
             applyFog(filas - i, columnas)
             applyFog(filas + i, columnas + j)
-            applyFog(filas  + i, columnas - j)
+            applyFog(filas + i, columnas - j)
             applyFog(filas - i, columnas + j)
             applyFog(filas - i, columnas - j)
         }
@@ -260,3 +277,4 @@ function handleTouchMove(evt) {
   
     render(maze)                                            
 }
+
