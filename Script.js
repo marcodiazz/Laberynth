@@ -19,7 +19,31 @@ function genGrid()
     }
 }
 
-function render(maze){
+function renderPosition(i,j){
+    if (maze[i][j].length > 0 && maze[i][j][0] == "wall"){
+        getBox(i,j).classList.add("wall");
+    }
+    else if(maze[i][j].length == 0 || maze[i][j][0] == 'key'){
+        getBox(i,j).classList.add("path");
+    }
+    else if(maze[i][j][0] == "door"){
+            getBox(i,j).classList.add("door");
+    }
+    else if(maze[i][j] == 5){
+        getBox(i,j).classList.add("player")
+        getBox(i,j).classList.remove("travalled")
+    }
+    else if(maze[i][j] == 4){
+        getBox(i,j).classList.add("travelled")
+        getBox(i,j).classList.remove("player")
+    }
+    else {
+        getBox(i,j).classList.add("wall");
+    }
+   
+}
+
+function render(){
     for(var i=0; i < 21; i++){
         for(var j=0; j<21; j++){
 
@@ -66,35 +90,39 @@ let maze = mazes[0];
 startMaze();
 let j = locateEntrance(maze);
 let e = locateExit(maze);
-render(maze);
+render();
 
 document.addEventListener('keydown', (event) => {
     
     var name = event.key;
+    
 
     if(name == 'w' || event.keyCode == '38'){
         moveUp();
-        
+        applyFogSquare(i, j , 3)
     } 
     else if(name == 'a' || event.keyCode == 37){
         moveLeft();
+        applyFogSquare(i, j , 3)
         
-
     } 
     else if(name == 's' || event.keyCode == 40){
         moveDown();
+        applyFogSquare(i, j , 3)
+        
         
     } 
     else if(name == 'd' || event.keyCode == 39){
         moveRight();
+        applyFogSquare(i, j , 3)
         
     }    
-    applyFogSquare(i, j , 3)
+    //applyFogSquare(i, j , 3)
     if(checkExit(maze,i,j)){
         document.getElementById("lab-div").style.cssText = "transition: 0.5s; background: black"
     }
-  
-    render(maze)
+    
+    //render();
 })
 
 function moveUp(){
@@ -166,14 +194,22 @@ function applyFogSquare(filas, columnas, radio){
     applyFog(filas,columnas);
     for (var i = 1; i <= radio; i++){
         for(var j = 1; j <= radio; j++){
-            applyFog(filas,columnas + j)
-            applyFog(filas,columnas - j)
+            applyFog(filas,columnas + j);
+            renderPosition(filas,columnas + j);
+            applyFog(filas,columnas - j);
+            renderPosition(filas,columnas - j);
             applyFog(filas + i, columnas)
+            renderPosition(filas + i, columnas)
             applyFog(filas - i, columnas)
+            renderPosition(filas - i, columnas)
             applyFog(filas + i, columnas + j)
+            renderPosition(filas + i, columnas + j)
             applyFog(filas + i, columnas - j)
+            renderPosition(filas + i, columnas - j)
             applyFog(filas - i, columnas + j)
+            renderPosition(filas - i, columnas + j)
             applyFog(filas - i, columnas - j)
+            renderPosition(filas - i, columnas - j)
         }
     }
 }
