@@ -59,7 +59,7 @@ let counter = 1
 let i = 0
 //let maze= Maze.maze;
 let mazes = JSON.parse(semanalMaze);
-let maze = mazes[0];
+let maze = mazes[1];
 
 
 
