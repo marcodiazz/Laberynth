@@ -93,7 +93,7 @@ document.addEventListener('keydown', (event) => {
         moveRight();
         
     }    
-    applyFogSquare(i, j , 3)
+    applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
         document.getElementById("lab-div").style.cssText = "transition: 0.5s; background: black"
     }
