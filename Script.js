@@ -1,9 +1,3 @@
-let Maze = new MazeBuilder(10, 10);
-//console.log(Maze.maze);
-
-let player = 5;
-
-genGrid();
 
 function genGrid()
 {
@@ -46,6 +40,7 @@ function render(maze){
            
         }
     } 
+    applyFog(i,j);
 }
 
 /*  PATH = 0
@@ -57,10 +52,19 @@ function render(maze){
 
 let counter = 1
 let i = 0
-//let maze= Maze.maze;
+
+// ------------ALEATORIO----------------
+let Maze = new MazeBuilder(10, 10);
+//console.log(Maze.maze);
+let player = 5;
+genGrid();
+let maze= Maze.maze;
+
+
+/* ----------NO ALEATORIO------------
 let mazes = JSON.parse(semanalMaze);
 let maze = mazes[0];
-
+*/
 
 
 startMaze();
