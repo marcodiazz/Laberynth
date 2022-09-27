@@ -132,7 +132,7 @@ document.addEventListener('keydown', (event) => {
     }    
     applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
-        document.getElementById("lab-div").style.cssText = "transition: 0.5s; background: #fca311"
+        document.getElementsByClassName("wall").style.cssText = "transition: 0.5s; background: #fca311"
     }
   
     renderClose(maze,i,j)
@@ -144,7 +144,12 @@ function tick(){
         console.log("Perdiste crack")
         return;
     }
-    document.getElementById("timer").innerHTML=time;
+    if(time < 10){
+        document.getElementById("timer").innerHTML="00:0" + time;
+    }
+    else{
+        document.getElementById("timer").innerHTML="00:" + time;
+    }
     time--;
 }
 function moveUp(){

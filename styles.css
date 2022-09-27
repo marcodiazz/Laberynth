@@ -79,10 +79,17 @@ header ul li a
     border-radius: 40px;
 }
 
-header ul li #counter, #timer {
+header ul li #counter{
     font-weight: 700;
     color: #ffffff;
     background-color: #003566 ;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.096);
+    transition-duration: 1s;
+}
+#timer{
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #fca311 ;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.096);
     transition-duration: 1s;
 }
