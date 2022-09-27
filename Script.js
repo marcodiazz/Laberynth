@@ -98,16 +98,21 @@ let mazes = JSON.parse(semanalMaze);
 let maze = mazes[0];
 */
 
-
 startMaze();
 let j = locateEntrance(maze);
 let e = locateExit(maze);
 render(maze);
+var started = false;
 
 document.addEventListener('keydown', (event) => {
     
     var name = event.key;
 
+    if(!started){
+        setInterval(tick, 1000);
+        started = true;
+    }
+    
     if(name == 'w' || event.keyCode == '38'){
         moveUp();
         
@@ -127,12 +132,21 @@ document.addEventListener('keydown', (event) => {
     }    
     applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
-        document.getElementById("lab-div").style.cssText = "transition: 0.5s; background: black"
+        document.getElementById("lab-div").style.cssText = "transition: 0.5s; background: #fca311"
     }
   
     renderClose(maze,i,j)
 })
 
+let time = 29;
+function tick(){
+    if(time < 0){
+        console.log("Perdiste crack")
+        return;
+    }
+    document.getElementById("timer").innerHTML=time;
+    time--;
+}
 function moveUp(){
     if((i != 0) && maze[i-1][j][0] != "wall" ){
         maze[i][j] = 4
