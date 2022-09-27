@@ -31,7 +31,7 @@ function render(maze){
                 getBox(i,j).classList.remove("travalled")
             }
             else if(maze[i][j] == 4){
-                getBox(i,j).classList.add("travelled")
+               // getBox(i,j).classList.add("travelled")
                 getBox(i,j).classList.remove("player")
             }
             else {
@@ -58,13 +58,13 @@ function renderClose(maze,m,n){
                     getBox(i,j).classList.add("door");
             }
             else if(maze[i][j] == 5){
-                getBox(i,j).classList.remove("travalled")
+                //getBox(i,j).classList.remove("travalled")
                 getBox(i,j).classList.add("player")
                 
             }
             else if(maze[i][j] == 4){
                 getBox(i,j).classList.remove("player")
-                getBox(i,j).classList.add("travelled")
+                //getBox(i,j).classList.add("travelled")
                 
             }
             else {
@@ -135,32 +135,40 @@ document.addEventListener('keydown', (event) => {
 
 function moveUp(){
     if((i != 0) && maze[i-1][j][0] != "wall" ){
-        maze[i-1][j] = 5
         maze[i][j] = 4
+        getBox(i,j).classList.remove("player")
+
+        maze[i-1][j] = 5
+        
         i = i - 1
         counterUp();
     }
 }
 function moveDown(){
     if(maze[i+1][j][0] != "wall"){
-        maze[i+1][j] = 5
         maze[i][j] = 4
+        getBox(i,j).classList.remove("player")
+
+        maze[i+1][j] = 5
+        
         i = i + 1
         counterUp();
     }
 }
 function moveLeft(){
     if(maze[i][j-1][0] != "wall"){
-        maze[i][j-1] = 5
-        maze[i][j] = 4
+         maze[i][j] = 4
+         getBox(i,j).classList.remove("player")
+         maze[i][j-1] = 5
         j = j - 1
         counterUp();
     }
 }
 function moveRight(){
     if(maze[i][j+1][0] != "wall"){
-        maze[i][j+1] = 5
         maze[i][j] = 4
+        getBox(i,j).classList.remove("player")
+        maze[i][j+1] = 5
         j = j + 1
         counterUp();
     }

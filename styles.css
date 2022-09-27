@@ -46,7 +46,7 @@ header
 
 header .logo
 {
-    color:rgba(66,54,101,1);
+    color:#003566;
     font-weight: 700;
     text-decoration: none;
     font-size: 2em;
@@ -73,7 +73,7 @@ header ul li a
 {
     text-decoration: none;
     font-weight: 700;
-    color: rgba(66,54,101,1);
+    color: #003566;
     padding: 0.5rem 1rem;
     border-radius: 40px;
 }
@@ -81,7 +81,7 @@ header ul li a
 header ul li #counter {
     font-weight: 700;
     color: #ffffff;
-    background-color: #483c6c ;
+    background-color: #003566 ;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.096);
     transition-duration: 1s;
 }
@@ -91,7 +91,7 @@ header ul li a:hover
 {
     font-weight: 500;
     color: #DDDDDD;
-    background-color: #483c6c ;
+    background-color: #003566 ;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     transition-duration: 1s;
 }
@@ -137,7 +137,7 @@ header ul li a:hover
 
 .container .lab .box {
     
-    box-shadow:0px 0px 2px 1px rgba(0, 0, 0, 0.6);
+    /* box-shadow:0px 0px 2px 1px rgba(0, 0, 0, 0.6); */
     border-radius: 5px;
     
     filter: blur(10px) grayscale(1)  opacity(0%); 
@@ -146,26 +146,27 @@ header ul li a:hover
 
 
 .wall{
-    background-color : #222831;
-     box-shadow :inset 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+    /* background-color : #222831; */
+    background-color: #001d3d;
+    box-shadow : inset 2px 2px 2px 2px rgba(0, 0, 0, 0.79);
     
  }
  
- .travelled{
+ /* .travelled{
      background-color: #67bef0;
      box-shadow :inset 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
      transition: 0.2s;
      
- }
+ } */
  
  .door{
-     background-color: #67bef0;
-     box-shadow :inset 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+     background-color: #06d6a0;
+     box-shadow : inset 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
      
  }
  .player{
-     background-color: #FF1E56;
-     box-shadow :inset 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
+     background-color: #fca311;
+     box-shadow : inset 2px 2px 2px 2px rgba(0, 0, 0, 0.4);
      transition: 0.2s;
  }
 
@@ -173,9 +174,7 @@ header ul li a:hover
 
 /* --------- ARROWS -------------*/
 
-.arrows{
     
-}
 .arrows #arrowUp{
     transform: rotate(270deg);
 }
@@ -185,6 +184,7 @@ header ul li a:hover
 .arrows #arrowLeft{
     transform: rotate(180deg);
 }
+
 /* --------- DARK MODE ----------- */
 
 
@@ -252,13 +252,13 @@ header ul li a:hover
     background-color: #1a1919;   
     box-shadow: 0 20px 45px rgba(240, 240, 240, 0.623);
 }
-.dark-mode-body .travelled{
+/* .dark-mode-body .travelled{
     border-width: 10px;
     border-color: whitesmoke;
     background-color: whitesmoke;   
     box-shadow: 0 20px 45px rgba(240, 240, 240, 0.623);
     
-}
+} */
 
 .dark-mode-body .player{
     border-width: 10px;
