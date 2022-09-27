@@ -43,6 +43,38 @@ function render(maze){
     applyFog(i,j);
 }
 
+
+function renderClose(maze,m,n){
+    for(var i=m; i < m+2; i++){
+        for(var j=n; j<n+2; j++){
+
+            if (maze[i][j].length > 0 && maze[i][j][0] == "wall"){
+                getBox(i,j).classList.add("wall");
+            }
+            else if(maze[i][j].length == 0 || maze[i][j][0] == 'key'){
+                getBox(i,j).classList.add("path");
+            }
+            else if(maze[i][j][0] == "door"){
+                    getBox(i,j).classList.add("door");
+            }
+            else if(maze[i][j] == 5){
+                getBox(i,j).classList.remove("travalled")
+                getBox(i,j).classList.add("player")
+                
+            }
+            else if(maze[i][j] == 4){
+                getBox(i,j).classList.remove("player")
+                getBox(i,j).classList.add("travelled")
+                
+            }
+            else {
+                getBox(i,j).classList.add("wall");
+            }
+           
+        }
+    } 
+    applyFog(i,j);
+}
 /*  PATH = 0
     WALL = 1
     DOOR = 3
@@ -98,7 +130,7 @@ document.addEventListener('keydown', (event) => {
         document.getElementById("lab-div").style.cssText = "transition: 0.5s; background: black"
     }
   
-    render(maze)
+    renderClose(maze,i,j)
 })
 
 function moveUp(){
