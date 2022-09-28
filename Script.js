@@ -27,10 +27,9 @@ function render(maze){
             }
             else if(maze[i][j] == 5){
                 getBox(i,j).classList.add("player")
-                getBox(i,j).classList.remove("travalled")
             }
             else if(maze[i][j] == 4){
-               // getBox(i,j).classList.add("travelled")
+                getBox(i,j).classList.add("travelled")
                 getBox(i,j).classList.remove("player")
             }
             else {
@@ -131,10 +130,9 @@ document.addEventListener('keydown', (event) => {
     }    
     applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
-        // document.getElementsByClassName("box").style.cssText = "transition: 0.5s; filter:opacity(10%);"
-        confetti.frameInterval = 10;
-        startConfetti();
         
+        //document.getElementsByClassName("travelled").style.cssText = "transition: 0.5s; filter:opacity(90%) background-color:#06d6a0;";
+        startConfetti();
     }
   
     renderClose(maze,i,j)
@@ -245,6 +243,7 @@ function applyFogSquare(filas, columnas, radio){
     
 function checkExit(maze, i, j){
     if(maze[i][j] == maze[20][e]){
+        console.log("exit");
         return 1;
     }
     return 0;
@@ -324,7 +323,7 @@ function handleTouchMove(evt) {
     yDown = null; 
     applyFogSquare(i, j , 3)
     if(checkExit(maze,i,j)){
-        document.getElementsByClassName("box").style.cssText = "transition: 0.5s; filter:opacity(10%);"
+        document.getElementsByClassName("travelled").style.cssText = "transition: 0.5s; filter:opacity(90%) background-color:#06d6a0;"
     }
   
     render(maze)                                            
