@@ -29,7 +29,7 @@ function render(maze){
                 getBox(i,j).classList.add("player")
             }
             else if(maze[i][j] == 4){
-                getBox(i,j).classList.add("travelled")
+                //getBox(i,j).classList.add("travelled")
                 getBox(i,j).classList.remove("player")
             }
             else {
@@ -102,7 +102,7 @@ let e = locateExit(maze);
 render(maze);
 var started = false;
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', async (event) => {
     
     var name = event.key;
 
@@ -130,9 +130,13 @@ document.addEventListener('keydown', (event) => {
     }    
     applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
-        
-        //document.getElementsByClassName("travelled").style.cssText = "transition: 0.5s; filter:opacity(90%) background-color:#06d6a0;";
         startConfetti();
+        //document.getElementsByClassName("lab-div").style.cssText = "transition: 0.5s; filter:opacity(100%);";
+        await new Promise(r => setTimeout(r, 5000));
+        stopConfetti();
+        
+        
+
     }
   
     renderClose(maze,i,j)
