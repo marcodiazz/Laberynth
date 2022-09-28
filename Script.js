@@ -132,7 +132,7 @@ document.addEventListener('keydown', (event) => {
     }    
     applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
-        document.getElementsByClassName("wall").style.cssText = "transition: 0.5s; background: #fca311"
+        document.getElementsByClassName("box").style.cssText = "transition: 0.5s; filter:opacity(10%);"
     }
   
     renderClose(maze,i,j)
@@ -322,7 +322,7 @@ function handleTouchMove(evt) {
     yDown = null; 
     applyFogSquare(i, j , 3)
     if(checkExit(maze,i,j)){
-        document.getElementById("lab-div").style.cssText = "transition: 0.5s; background: black"
+        document.getElementsByClassName("box").style.cssText = "transition: 0.5s; filter:opacity(10%);"
     }
   
     render(maze)                                            

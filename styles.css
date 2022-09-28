@@ -17,7 +17,8 @@ body
     align-items: center;
     height: 100vh;
     overflow-y: hidden;
-    background-image: url(Images/fondoClaro.jpg);
+    /* background-image: url(Images/blurimg.jpeg); */
+    background: #f9f4f5;
     background-size:cover;
     background-position: center;
     background-attachment: fixed;
@@ -112,8 +113,8 @@ header ul li a:hover
     
    max-width: 85vw;
    max-height: 90vh;
-   border: 4px solid white;
-    background: rgba(255, 255, 255, 0.802);
+   border: 1px solid white;
+    background: rgba(255, 255, 255, 0.516);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     border-radius: 30px;
     padding: 3rem;
@@ -123,6 +124,7 @@ header ul li a:hover
     display: flex;
     justify-content: center;
     align-items: center;
+    
     
 }
 
@@ -139,7 +141,8 @@ header ul li a:hover
     height: 40rem;
     width: 40rem;
     
-    margin-top: 3rem
+    margin-top: 3rem;
+    
 }
 
 
@@ -151,7 +154,7 @@ header ul li a:hover
     border-radius: 5px;
 
     
-    filter: blur(10px)  opacity(0%); 
+    filter: opacity(0%); 
 }
 
 
