@@ -1,4 +1,3 @@
-
 function genGrid()
 {
     var lab = document.getElementById("lab-div");
@@ -132,7 +131,10 @@ document.addEventListener('keydown', (event) => {
     }    
     applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
-        document.getElementsByClassName("box").style.cssText = "transition: 0.5s; filter:opacity(10%);"
+        // document.getElementsByClassName("box").style.cssText = "transition: 0.5s; filter:opacity(10%);"
+        confetti.frameInterval = 10;
+        startConfetti();
+        
     }
   
     renderClose(maze,i,j)
