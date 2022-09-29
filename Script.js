@@ -102,8 +102,9 @@ let e = locateExit(maze);
 render(maze);
 var started = false;
 
-document.addEventListener('keydown', async (event) => {
-    
+document.addEventListener('keydown', movement) 
+
+async function movement(event){
     var name = event.key;
 
     if(!started){
@@ -130,6 +131,7 @@ document.addEventListener('keydown', async (event) => {
     }    
     applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
+        document.removeEventListener('keydown', movement);
         startConfetti();
         //document.getElementsByClassName("lab-div").style.cssText = "transition: 0.5s; filter:opacity(100%);";
         await new Promise(r => setTimeout(r, 5000));
@@ -140,10 +142,51 @@ document.addEventListener('keydown', async (event) => {
     }
   
     renderClose(maze,i,j)
-})
+}
+
+    
+//     var name = event.key;
+
+//     if(!started){
+//         setInterval(tick, 1000);
+//         started = true;
+//     }
+    
+//     if(name == 'w' || event.keyCode == '38'){
+//         moveUp();
+        
+//     } 
+//     else if(name == 'a' || event.keyCode == 37){
+//         moveLeft();
+        
+
+//     } 
+//     else if(name == 's' || event.keyCode == 40){
+//         moveDown();
+        
+//     } 
+//     else if(name == 'd' || event.keyCode == 39){
+//         moveRight();
+        
+//     }    
+//     applyFogSquare(i, j , 2)
+//     if(checkExit(maze,i,j)){
+//         document.removeEventListener();
+//         startConfetti();
+//         //document.getElementsByClassName("lab-div").style.cssText = "transition: 0.5s; filter:opacity(100%);";
+//         await new Promise(r => setTimeout(r, 5000));
+//         stopConfetti();
+        
+        
+
+//     }
+  
+//     renderClose(maze,i,j)
+// })
 
 let time = 29;
 function tick(){
+    if(checkExit(maze,i,j)) return;
     if(time < 0){
         console.log("Perdiste crack")
         return;
@@ -288,7 +331,7 @@ function handleTouchStart(evt) {
     yDown = firstTouch.clientY;                                      
 };                                                
                                                                          
-function handleTouchMove(evt) {
+async function handleTouchMove(evt) {
     if ( ! xDown || ! yDown ) {
         return;
     }
@@ -327,9 +370,16 @@ function handleTouchMove(evt) {
     yDown = null; 
     applyFogSquare(i, j , 3)
     if(checkExit(maze,i,j)){
-        document.getElementsByClassName("travelled").style.cssText = "transition: 0.5s; filter:opacity(90%) background-color:#06d6a0;"
+        document.removeEventListener('touchstart', handleTouchStart, false);        
+        document.removeEventListener('touchmove', handleTouchMove, false)
+        startConfetti();
+        //document.getElementsByClassName("lab-div").style.cssText = "transition: 0.5s; filter:opacity(100%);";
+        await new Promise(r => setTimeout(r, 5000));
+        stopConfetti();
+        
+        
+
     }
-  
     render(maze)                                            
 }
 
