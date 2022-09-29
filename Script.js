@@ -332,6 +332,10 @@ function handleTouchStart(evt) {
 };                                                
                                                                          
 async function handleTouchMove(evt) {
+    if(!started){
+        setInterval(tick, 1000);
+        started = true;
+    }
     if ( ! xDown || ! yDown ) {
         return;
     }
