@@ -228,12 +228,12 @@ header ul li a:hover
 .dark-mode-body header ul li a:hover
 {
     font-weight: 700;
-    color: #212121;
+    color: whitesmoke;
     background:rgb(67, 209, 193);
 }
 
 .dark-mode-body #counter{
-    background: #06d6a0;
+    background: rgb(67, 209, 193);
     color: whitesmoke;
 }
 .dark-mode-body .container
@@ -284,39 +284,50 @@ header ul li a:hover
     
     html,
     body {
-        position: fixed;
         overflow: hidden;
 }
     body{
        /* overflow-y: hidden;*/
         justify-content: flex-start;
-        margin-top: 2rem;
-        margin-left: 0.6rem;
+        margin-top: 0;
+        margin-left: 0;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
         
     }
     header {
-        
+        width: 95%;
+        max-width: 100%;
+        margin-top: 10%;
         flex-direction: column;
-        padding: 10px;
-        padding-bottom: 10px;
+        padding: 1rem;
         gap: 5px;
     }
     header ul{
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 10px;
-        gap: 0;
+        gap: 3px;
+        padding: 0.75rem;
     }
     .container{
-        margin-top: -1.5rem;
-        padding: 10px;
-        padding-bottom: 40px;
+        margin-top: 10%;
+        max-width: 95vw;
+        padding: 1.5rem;
+        padding-block: 2rem;
+
+    
+
+        /* padding-bottom: 40px; */
+    }
+    .container .lab{
+        margin: 0;
+        padding: 0;
+        max-width: 100vw;
+        max-height: auto;
+        
     }
     .container .lab .box {
         border-radius: 2px;
         box-shadow:0px 0px 1px 0.5px rgba(0, 0, 0, 0);
     }
 
-  }
+  } 
+
