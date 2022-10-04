@@ -102,6 +102,7 @@ let e = locateExit(maze);
 render(maze);
 var started = false;
 off();
+on();
 document.addEventListener('keydown', movement) 
 
 async function movement(event){
@@ -253,7 +254,7 @@ function applyFogSquare(filas, columnas, radio){
     
 function checkExit(maze, i, j){
     if(maze[i][j] == maze[20][e]){
-        console.log("exit");
+        // console.log("exit");
         return 1;
     }
     return 0;
@@ -319,23 +320,19 @@ async function handleTouchMove(evt) {
                                                                          
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
-            console.log("left");
             moveLeft();
             /* right swipe */ 
         } else {
-            console.log("right");
             moveRight();
 
             /* left swipe */
         }                       
     } else {
         if ( yDiff > 0 ) {
-            console.log("up");
             moveUp();
             
             /* down swipe */ 
         } else { 
-            console.log("down");
             moveDown();
             /* up swipe */
         }                                                                 

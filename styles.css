@@ -254,6 +254,9 @@ header ul li a:hover
     display: none;
     font-size: 3rem;
   }
+  /* #instagram{
+    display: block;
+  } */
   a{
     text-decoration: none;
   }
@@ -395,7 +398,9 @@ header ul li a:hover
         font-size: 1.5rem;
         margin-top: 50%;
         max-width: 95vw;
-        max-height: 60%;
+        max-height: 65%; 
+        width: 95vw;
+        height: auto;
     }
     #finish-overlay h1{
         font-size: 2rem;
@@ -405,14 +410,15 @@ header ul li a:hover
         justify-content: center;
         align-items: center;
         gap: 30%;
-        padding-top: 1rem;
+        padding-top: 0.5rem;
         background: none;
     }
     #finish-overlay i{
-        padding-top: 2rem;
+        padding-top: 1.3rem;
         /* color: white; */
         display: block;
-        font-size: 4rem;
+        font-size: 3.5rem;
+        padding-bottom: 3rem;
     }
     #whatsapp{
         /* color: #00B896; */
