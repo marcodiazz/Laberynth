@@ -133,7 +133,7 @@ async function movement(event){
     if(checkExit(maze,i,j)){
         document.removeEventListener('keydown', movement);
         document.getElementById("finishTimer").innerHTML=time+1;
-        document.getElementById("finishCounter").innerHTML=counter+1;
+        document.getElementById("finishCounter").innerHTML=counter;
         on();
         startConfetti();
         //document.getElementsByClassName("lab-div").style.cssText = "transition: 0.5s; filter:opacity(100%);";
@@ -347,6 +347,9 @@ async function handleTouchMove(evt) {
     if(checkExit(maze,i,j)){
         document.removeEventListener('touchstart', handleTouchStart, false);        
         document.removeEventListener('touchmove', handleTouchMove, false)
+        document.getElementById("finishTimer").innerHTML=time+1;
+        document.getElementById("finishCounter").innerHTML=counter;
+        on();
         startConfetti();
         //document.getElementsByClassName("lab-div").style.cssText = "transition: 0.5s; filter:opacity(100%);";
         await new Promise(r => setTimeout(r, 5000));
