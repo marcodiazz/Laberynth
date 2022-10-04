@@ -115,7 +115,7 @@ header ul li a:hover
 {
     
    max-width: 85vw;
-   max-height: 90vh;
+   max-height: 85vh;
    border: 1px solid white;
     background: rgba(255, 255, 255, 0.516);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
@@ -133,15 +133,15 @@ header ul li a:hover
 /* -------- Estructura Laberinto ------------- */
 .container .lab
 {
-    max-width: 85vw;
-    max-height: 85vw;
+    max-width: 80vw;
+    max-height: 80vw;
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(21,1fr);
     grid-template-rows: repeat(21,1fr); 
     gap: 1px; 
-    height: 40rem;
-    width: 40rem;
+    height: 38rem;
+    width: 38rem;
     
     margin-top: 3rem;
     
@@ -197,8 +197,8 @@ header ul li a:hover
     
     box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.5);
     border-radius: 50px;
-    padding: 3rem;
-    margin-top: 12%;
+    padding: 1.5rem;
+    margin-top: 13.5%;
     margin-bottom: 4rem; 
     display: flex;
     justify-content: center;
@@ -233,19 +233,29 @@ header ul li a:hover
 
   #finish-overlay ul li{
 
-    background: #fca311;
+    /* background: #fca311; */
+    background: linear-gradient(45deg, #ff00d4 0%, #00ddff 90%);
     border-radius: 40px;
-    padding-inline: 2rem;
+    padding: 1rem;
+    padding-inline: 1.5rem;
     color:white;
     font-weight: 700;
   }
 
 
   .url{
-    font-size: 50%;
+    font-size: 55%;
     color: whitesmoke;
     text-align: center;
     justify-self: center;
+  }
+
+  #finish-overlay i{
+    display: none;
+    font-size: 3rem;
+  }
+  a{
+    text-decoration: none;
   }
 
 /* --------- DARK MODE ----------- */
@@ -364,8 +374,6 @@ header ul li a:hover
         padding: 1.5rem;
         padding-block: 2rem;
 
-    
-
         /* padding-bottom: 40px; */
     }
     .container .lab{
@@ -383,6 +391,42 @@ header ul li a:hover
         box-shadow: 0px 10px 20px rgba(105, 105, 105, 0.5);
     }
     
+    #finish-overlay {
+        font-size: 1.5rem;
+        margin-top: 50%;
+        max-width: 95vw;
+        max-height: 60%;
+    }
+    #finish-overlay h1{
+        font-size: 2rem;
+    }
+    #finish-overlay .redes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30%;
+        padding-top: 1rem;
+        background: none;
+    }
+    #finish-overlay i{
+        padding-top: 2rem;
+        /* color: white; */
+        display: block;
+        font-size: 4rem;
+    }
+    #whatsapp{
+        /* color: #00B896; */
+        background: -webkit-gradient(linear, left top, left bottom, from(#00ffd0), to(#27c100));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    #instagram{
+        background: -webkit-gradient(linear, left top, left bottom, from(#ef4136), to(#fbb040));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+
 
   } 
 

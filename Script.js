@@ -132,8 +132,8 @@ async function movement(event){
     applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
         document.removeEventListener('keydown', movement);
-        document.getElementById("finishTimer").innerHTML=time;
-        document.getElementById("finishCounter").innerHTML=counter;
+        document.getElementById("finishTimer").innerHTML=time+1;
+        document.getElementById("finishCounter").innerHTML=counter+1;
         on();
         startConfetti();
         //document.getElementsByClassName("lab-div").style.cssText = "transition: 0.5s; filter:opacity(100%);";
