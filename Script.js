@@ -102,7 +102,6 @@ let e = locateExit(maze);
 render(maze);
 var started = false;
 off();
-on();
 document.addEventListener('keydown', movement) 
 
 async function movement(event){
