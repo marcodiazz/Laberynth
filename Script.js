@@ -267,10 +267,13 @@ function on() {
     document.getElementById("finish-overlay").style.display = "block";
   }
   
-  function off() {
+function off() {
     document.getElementById("finish-overlay").style.display = "none";
-  }
+}
 
+function whatsapp_Share(){
+    document.getElementById("whatsapp-share").setAttribute('href', "whatsapp://send?text=Intenta escapar del laberinto y superarme! \n" + "&#26A1 " + counter + " Movimientos \n" + "&#23F3 " + time + " Segundos \n" +  "marcodiazz.github.io/Laberynth/index.html#");
+}
 
 // COUNTER FUNCTIONS
 
@@ -345,6 +348,7 @@ async function handleTouchMove(evt) {
         document.removeEventListener('touchmove', handleTouchMove, false)
         document.getElementById("finishTimer").innerHTML=time+1;
         document.getElementById("finishCounter").innerHTML=counter;
+        whatsapp_Share();
         on();
         startConfetti();
         //document.getElementsByClassName("lab-div").style.cssText = "transition: 0.5s; filter:opacity(100%);";
