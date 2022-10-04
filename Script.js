@@ -272,7 +272,9 @@ function off() {
 }
 
 function whatsapp_Share(){
-    document.getElementById("whatsapp-share").setAttribute('href', "whatsapp://send?text=Intenta escapar del laberinto y superarme! " + "&#26A1 " + counter + " Movimientos " + "&#23F3 " + time + " Segundos " +  "marcodiazz.github.io/Laberynth/index.html#");
+    let url = "whatsapp://send?text=Intenta escapar del laberinto y superarme! " + "&#26A1 " + counter + " Movimientos " + "&#23F3 " + time + " Segundos " +  "marcodiazz.github.io/Laberynth/index.html#";
+    console.log(url);
+    document.getElementById("whatsapp-share").setAttribute('href', url );
 }
 
 // COUNTER FUNCTIONS
