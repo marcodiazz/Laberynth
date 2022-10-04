@@ -93,7 +93,7 @@ header ul li #counter{
 #timer{
     font-weight: 700;
     color: #ffffff;
-    background-color: #fca311 ;
+    background-color: #fca311;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.096);
     transition-duration: 1s;
 }
