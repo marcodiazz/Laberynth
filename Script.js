@@ -273,7 +273,7 @@ function off() {
 
 function whatsapp_Share(){
    
-   let url = "whatsapp://send?text=Intenta+escapar+del+laberinto+y+superarme%21+%0D%0A%26%2326A1+Movimientos+-%3E+"
+   let url = "whatsapp://send?text=Intenta+escapar+del+laberinto+y+superarme%21+%0A%26%2326A1+Movimientos+-%3E+"
     // let url = "whatsapp://send?text=Intenta%20escapar%20del%20laberinto%20y%20superarme!%20&#26A1%2051%20Movimientos%20&#23F3%2015%20Segundos%20marcodiazz.github.io/Laberynth/index.html#";
     console.log(url);
     document.getElementById("whatsapp-share").setAttribute('href', url);
@@ -350,8 +350,8 @@ async function handleTouchMove(evt) {
     if(checkExit(maze,i,j)){
         document.removeEventListener('touchstart', handleTouchStart, false);        
         document.removeEventListener('touchmove', handleTouchMove, false)
-        document.getElementById("finishTimer").innerHTML=time+1;
-        document.getElementById("finishCounter").innerHTML=counter;
+        document.getElementById("finishTimer").innerHTML="00:"+time+1;
+        document.getElementById("finishCounter").innerHTML=counter-1;
         whatsapp_Share();
         on();
         startConfetti();
