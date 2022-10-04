@@ -244,10 +244,12 @@ header ul li a:hover
 
 
   .url{
-    font-size: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    padding-bottom: 0.8rem;
     color: whitesmoke;
-    text-align: center;
-    justify-self: center;
   }
 
   #finish-overlay i{
