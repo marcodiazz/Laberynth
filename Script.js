@@ -349,6 +349,9 @@ async function handleTouchMove(evt) {
     if(checkExit(maze,i,j)){
         document.removeEventListener('touchstart', handleTouchStart, false);        
         document.removeEventListener('touchmove', handleTouchMove, false)
+        if(time <= 10){
+            document.getElementById("finishTimer").innerHTML="00:0"+(time+1);
+        }
         document.getElementById("finishTimer").innerHTML="00:"+(time+1);
         document.getElementById("finishCounter").innerHTML=counter-1;
         whatsapp_Share();
