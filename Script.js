@@ -132,7 +132,12 @@ async function movement(event){
     applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
         document.removeEventListener('keydown', movement);
-        document.getElementById("finishTimer").innerHTML="00:"+(time+1);
+        if(time <= 10){
+            document.getElementById("finishTimer").innerHTML="00:0"+(time+1);
+        }
+        else{
+            document.getElementById("finishTimer").innerHTML="00:"+(time+1);
+        }
         document.getElementById("finishCounter").innerHTML=counter-1;
         on();
         startConfetti();
@@ -275,7 +280,7 @@ function whatsapp_Share(){
    
     // let url = "whatsapp://send?text=Intenta%20escapar%20del%20laberinto%20y%20superarme!%20&#26A1%2051%20Movimientos%20&#23F3%2015%20Segundos%20marcodiazz.github.io/Laberynth/index.html#";
     // console.log(url);
-    document.getElementById("whatsapp-share").setAttribute('href',"whatsapp://send?text=Intenta escapar del laberinto y superarme! %0a🟧 *Movimientos ->* " + counter + "%0a⏳ *Segundos ->* " + time + "%0ahttps://marcodiazz.github.io/Laberynth/index.html#");
+    document.getElementById("whatsapp-share").setAttribute('href',"whatsapp://send?text=📱Intenta escapar del laberinto y superarme!📱 %0a🟧 *Movimientos ->* " + counter + "%0a⏳ *Segundos ->* " + time + "%0ahttps://marcodiazz.github.io/Laberynth/index.html#");
 }
 
 // COUNTER FUNCTIONS
@@ -352,7 +357,9 @@ async function handleTouchMove(evt) {
         if(time <= 10){
             document.getElementById("finishTimer").innerHTML="00:0"+(time+1);
         }
-        document.getElementById("finishTimer").innerHTML="00:"+(time+1);
+        else{
+            document.getElementById("finishTimer").innerHTML="00:"+(time+1);
+        }
         document.getElementById("finishCounter").innerHTML=counter-1;
         whatsapp_Share();
         on();

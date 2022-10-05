@@ -378,6 +378,7 @@ header ul li a:hover
         max-width: 95vw;
         padding: 1.5rem;
         padding-block: 2rem;
+        margin-bottom: 0;
 
         /* padding-bottom: 40px; */
     }
@@ -402,7 +403,7 @@ header ul li a:hover
         max-width: 95vw;
         max-height: 65%; 
         width: 95vw;
-        height: auto;
+        /* height: auto; */
     }
     #finish-overlay h1{
         font-size: 2rem;
