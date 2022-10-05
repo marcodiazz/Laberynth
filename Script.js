@@ -276,7 +276,7 @@ function whatsapp_Share(){
    let url = "whatsapp://send?text=Intenta+escapar+del+laberinto+y+superarme%21+%0A%26%2326A1+Movimientos+-%3E+"
     // let url = "whatsapp://send?text=Intenta%20escapar%20del%20laberinto%20y%20superarme!%20&#26A1%2051%20Movimientos%20&#23F3%2015%20Segundos%20marcodiazz.github.io/Laberynth/index.html#";
     console.log(url);
-    document.getElementById("whatsapp-share").setAttribute('href',"whatsapp://send?text=Intenta escapar del laberinto y superarme " + counter + " -> Movimientos \n" + time + " -> Segundos   https://marcodiazz.github.io/Laberynth/index.html#");
+    document.getElementById("whatsapp-share").setAttribute('href',"whatsapp://send?text=Intenta escapar del laberinto y superarme " + LF + "🟧 Movimientos -> " + counter + LF + "⏳ Segundos -> " + time + LF + "https://marcodiazz.github.io/Laberynth/index.html#");
 }
 
 // COUNTER FUNCTIONS
