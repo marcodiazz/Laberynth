@@ -132,7 +132,7 @@ async function movement(event){
     applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
         document.removeEventListener('keydown', movement);
-        if(time <= 10){
+        if(time < 10){
             document.getElementById("finishTimer").innerHTML="00:0"+(time+1);
         }
         else{
@@ -354,7 +354,7 @@ async function handleTouchMove(evt) {
     if(checkExit(maze,i,j)){
         document.removeEventListener('touchstart', handleTouchStart, false);        
         document.removeEventListener('touchmove', handleTouchMove, false)
-        if(time <= 10){
+        if(time < 10){
             document.getElementById("finishTimer").innerHTML="00:0"+(time+1);
         }
         else{
