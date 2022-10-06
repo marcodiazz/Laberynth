@@ -84,17 +84,17 @@ let counter = 1
 let i = 0
 
 // ------------ALEATORIO----------------
-let Maze = new MazeBuilder(10, 10);
-//console.log(Maze.maze);
+// let Maze = new MazeBuilder(10, 10);
+// //console.log(Maze.maze);
 let player = 5;
 genGrid();
-let maze= Maze.maze;
+// let maze= Maze.maze;
 
 
-/* ----------NO ALEATORIO------------
+/* ----------NO ALEATORIO------------*/
 let mazes = JSON.parse(semanalMaze);
 let maze = mazes[0];
-*/
+
 
 startMaze();
 let j = locateEntrance(maze);
@@ -132,7 +132,7 @@ async function movement(event){
     applyFogSquare(i, j , 2)
     if(checkExit(maze,i,j)){
         document.removeEventListener('keydown', movement);
-        if(time < 10){
+        if(time < 9){
             document.getElementById("finishTimer").innerHTML="00:0"+(time+1);
         }
         else{
@@ -354,7 +354,7 @@ async function handleTouchMove(evt) {
     if(checkExit(maze,i,j)){
         document.removeEventListener('touchstart', handleTouchStart, false);        
         document.removeEventListener('touchmove', handleTouchMove, false)
-        if(time < 10){
+        if(time < 9){
             document.getElementById("finishTimer").innerHTML="00:0"+(time+1);
         }
         else{
